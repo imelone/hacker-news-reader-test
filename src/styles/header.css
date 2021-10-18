@@ -2,4 +2,8 @@
     background-color: #052962;
     color:#FFFFFF; 
     font-family: 'Arial';
+    padding:1rem;
+}
+a:-webkit-any-link{
+    text-decoration: none !important;
 }

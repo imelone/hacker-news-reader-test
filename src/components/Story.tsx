@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useHistory } from "react-router-dom";
 
 import spinner from "../assets/spinnerImg.svg";
 
@@ -8,18 +8,20 @@ import  "../styles/story.css";
 import "../styles/loader.css";
 
 //api
-import {getStory} from "./../api/api";
+import {getStory} from "../api";
 
-const Link = ({ url, title, data}:{ url:string, title:string, data?:number }) => (
+const Link = ({ url, title}:{ url:string, title:string}) => (
    <a href={url} target="_blank" rel="noreferrer" >
     {title}
   </a>
 );
 
 const StoryList = () => {
+    
     const { id } = useParams<any>();
     const [isLoading, setIsLoading] = useState(false);
     const [storyData, setStoriesData] = useState<any>([])
+    const history = useHistory();
 
     useEffect(() => {
         setIsLoading(true);
@@ -33,12 +35,18 @@ const StoryList = () => {
   return (
    
     <div className="story">
-               {isLoading === true ? <div className="container-spinner" ><div className="loader" ><img src={spinner} className="spinner"/></div></div> : ""}
+        <button onClick={() => history.goBack()}>Go Back</button>
+               {isLoading === true ? 
+                    <div className="container-spinner" >
+                        <div className="loader" >
+                            <img src={spinner} className="spinner" alt="spinner"/>
+                        </div>
+                    </div> 
+               : ""}
       <div className="story-title">
         {storyData.title}
       </div>
-     
-     
+          
       <div className="html_raw" style={{ fontFamily: "Open sans" }} dangerouslySetInnerHTML={{ __html:  storyData.text }} />
       <div className="story-info" >
         <span>

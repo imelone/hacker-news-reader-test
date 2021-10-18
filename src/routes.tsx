@@ -14,9 +14,9 @@ const AppRoutes = () => {
                     path="/:type"
                     render={({ match }) => {
                     const { type } = match.params;
-                    
+                   
                     if (['top', 'new', 'best'].includes(type)) {
-                    
+                     
                         return <Home type={type} />;
                     }
                     

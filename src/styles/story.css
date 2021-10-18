@@ -1,26 +1,56 @@
 .story {
+    
+     flex-direction: column;
      padding:2rem;
+    
 }
 .story-title {
  
-    padding-top:20px;
-    margin-bottom: 20px;
+    padding-top:2rem;
+    margin-bottom: 2rem;
     font-size: 2rem;
     text-align: center;
+    color:#052962;
 }
 .story-info {
  
-    padding-top:20px;
-    margin-bottom: 20px;
+    color:#4455b5;
     font-size: 1rem;
     text-align: left;
+    margin-top: 1rem;
+    margin-bottom:1rem;
 }
 .story .story-info span {
     margin: 4px;
 }
 .html_raw{
-    padding-top:20px;
-    margin-bottom: 20px;
+   
     font-size: 1rem;
     text-align: left;
+    color:#4455b5;
 }
+code{
+    display:flex;
+    margin:1rem !important;
+}
+pre{
+   
+    white-space: normal
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 0.9rem;
+   }
+    h1 {
+        font-size: 2rem;
+   }
+    .nav-link {
+        flex-direction: column;
+   }
+    .story {
+        width: 100%;
+        margin:0;
+   }
+}
+
