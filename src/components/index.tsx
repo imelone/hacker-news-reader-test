@@ -10,8 +10,7 @@ import Spinner from "./common/Spinner";
 
 //css
 import "../styles/loader.css";
-
-
+import  "../styles/story.css";
 
 function Home(props:any){
   
@@ -37,9 +36,10 @@ const [isLoading, setIsLoading] = useState(false);
            
             <Header/>
 
-            {storiesData.map((item:any, key:number)=>{
+            {storiesData? storiesData.map((item:any, key:number)=>{
                 return <div key={key}> <StoryList story={item.data}/> </div> 
-            })}
+           
+            }) : <div className="story-title" style={{marginTop:"3rem"}}>{"Nothing to show"}</div>}
         </>
     )
 }
