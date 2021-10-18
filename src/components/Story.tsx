@@ -39,7 +39,7 @@ const StoryList = () => {
   return (
    
     <div className="story">
-       <div style={{width:"100%", textAlign:"left"}}>
+       <div className="go-back">
             <a href="/#" rel="noreferrer" onClick={()=>history.goBack()}>
                 <img src={arrow} alt="arrow" width="20rem"/>
             </a>
