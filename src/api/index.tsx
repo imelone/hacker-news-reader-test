@@ -27,7 +27,7 @@ export const getStories = async (type:string) => {
       `${BASE_URL}/${type}stories.json`
     );
     
-    const stories = await Promise.all(storyIds.slice(0, 200).map(getStory));
+    const stories = await Promise.all(storyIds.slice(0, 130).map(getStory));
      
     //get the stories with text field
     let result = stories.filter((item:any) => item.data.text !== undefined )
