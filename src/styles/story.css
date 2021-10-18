@@ -38,8 +38,8 @@ pre{
     white-space: normal
 }
 .go-back{
-    width:"100%";
-    text-align:"left"
+    width:100%;
+    text-align:left;
 }
 
 @media screen and (max-width: 600px) {
