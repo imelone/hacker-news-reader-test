@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams,useHistory } from "react-router-dom";
 
-import spinner from "../assets/spinnerImg.svg";
+//assets
+import arrow from "../assets/chevron-arrow-left.png";
 
 //css
 import  "../styles/story.css";
@@ -9,6 +10,9 @@ import "../styles/loader.css";
 
 //api
 import {getStory} from "../api";
+
+//components
+import Spinner from "./common/Spinner";
 
 const Link = ({ url, title}:{ url:string, title:string}) => (
    <a href={url} target="_blank" rel="noreferrer" >
@@ -35,19 +39,21 @@ const StoryList = () => {
   return (
    
     <div className="story">
-        <button onClick={() => history.goBack()}>Go Back</button>
-               {isLoading === true ? 
-                    <div className="container-spinner" >
-                        <div className="loader" >
-                            <img src={spinner} className="spinner" alt="spinner"/>
-                        </div>
-                    </div> 
-               : ""}
+       <div style={{width:"100%", textAlign:"left"}}>
+            <a href="/#" rel="noreferrer" onClick={()=>history.goBack()}>
+                <img src={arrow} alt="arrow" width="20rem"/>
+            </a>
+        </div>
+
+        {isLoading === true ? 
+            <Spinner/>
+        : ""}
+
       <div className="story-title">
         {storyData.title}
       </div>
           
-      <div className="html_raw" style={{ fontFamily: "Open sans" }} dangerouslySetInnerHTML={{ __html:  storyData.text }} />
+      <div className="html_raw"  dangerouslySetInnerHTML={{ __html:  storyData.text }} />
       <div className="story-info" >
         <span>
           by{' '}

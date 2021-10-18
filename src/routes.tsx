@@ -13,13 +13,12 @@ const AppRoutes = () => {
             <Route
                     path="/:type"
                     render={({ match }) => {
-                    const { type } = match.params;
-                   
-                    if (['top', 'new', 'best'].includes(type)) {
-                     
-                        return <Home type={type} />;
-                    }
+                        const { type } = match.params;
                     
+                        if (['top', 'new', 'best'].includes(type)) {
+                        
+                            return <Home type={type} />;
+                        }
                     }}
                 />
             <Route path="/" render={() => <Redirect to="/top" />} exact={true} /> 

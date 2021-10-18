@@ -1,10 +1,16 @@
 import {useState,useEffect} from "react";
+
+//api
 import {getStories} from "../api";
+
+//components
 import StoryList from "./StoryList";
 import Header from "./Header";
+import Spinner from "./common/Spinner";
 
+//css
 import "../styles/loader.css";
-import spinner from "../assets/spinnerImg.svg";
+
 
 
 function Home(props:any){
@@ -26,11 +32,7 @@ const [isLoading, setIsLoading] = useState(false);
     return(
         <> 
             {isLoading === true ? 
-                <div className="container-spinner" >
-                    <div className="loader" >
-                        <img src={spinner} className="spinner" alt="spinner"/>
-                    </div>
-                </div> 
+               <Spinner/>
             : ""}
            
             <Header/>

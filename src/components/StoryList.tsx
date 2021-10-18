@@ -1,6 +1,6 @@
 import  "../styles/storyList.css";
 
-const Link = ({ url, title, id}:{ url:string, title:string, id?:number }) => (
+const Link = ({ url, title}:{ url:string, title:string }) => (
    <a href={url}  rel="noreferrer" >
     {title}
   </a>
@@ -16,13 +16,13 @@ interface storyType {
     url:string}
 }
 
-const StoryList = ({story: { id, by, title, kids, time, url } }:storyType) => {
+const StoryList = ({story: { id, by, title, kids, time } }:storyType) => {
     
   return (
    
     <div className="stories">
       <div className="stories-title">
-        <Link url={`#/story/${192327}`} title={title} />
+        <Link url={`#/story/${id}`} title={title} />
         {/*192327 has text field*/}
       </div>
       <div className="stories-info" >
