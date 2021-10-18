@@ -1,0 +1,42 @@
+.loader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 99999;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5));
+}
+.loader .message {
+    position: relative;
+    transform: translate(-5%, -5%);
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+}
+
+.spinner{
+
+position:fixed;
+background-repeat:no-repeat;
+top:calc(50% - 10rem);
+left:calc(50% - 5rem);
+background-color:transparent;
+background-size:100% 100%;
+width:10rem;
+height:10rem;
+z-index:3000 !important;
+}
+
+
+
+container-spinner {
+width: "100%";
+height: "100%";
+background-color: "grey";
+opacity: "0.9";
+display: "block";
+z-index: "6000 !important";
+pointer-events: "none" ;
+}

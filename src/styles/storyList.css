@@ -16,26 +16,7 @@ h1 {
     padding-top:20px;
     margin-bottom: 20px;
 }
-.loading {
-    text-align: center;
-}
-#loader {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    z-index: 99999;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5));
-}
-#loader .message {
-    position: relative;
-    transform: translate(-5%, -5%);
-    font-size: 20px;
-    top: 50%;
-    left: 50%;
-    color: #fff;
-}
+
 .loader-open {
     overflow: hidden;
 }
@@ -56,7 +37,7 @@ h1 {
     color: inherit;
     letter-spacing: 2px;
 }
-.story {
+.stories {
     width: 80%;
     margin: 10px auto;
     border: 1px solid #ccc;
@@ -66,27 +47,27 @@ h1 {
     -webkit-box-shadow: 10px 10px 14px -9px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 14px -9px rgba(0,0,0,0.75);
 }
-.story .story-title {
+.stories .stories-title {
     margin-bottom: 4px;
     text-align: left;
 }
-.story .story-title a:link, .story .story-title a:visited {
+.stories .stories-title a:link, .stories .stories-title a:visited {
     font-size: 18px;
     color: #1a2879;
     text-decoration: none; 
 }
-.story .story-title a:hover, .story .story-title a:active {
+.stories .stories-title a:hover, .stories .stories-title a:active {
     text-decoration: none;
 }
-.story .story-info {
+.stories .stories-info {
     color: #4455b5;
     text-align: left;
     text-decoration: none; 
 }
-.story .story-info span {
+.stories .stories-info span {
     margin: 4px;
 }
-.story .story-info a {
+.stories .stories-info a {
     color: inherit;
 }
 
@@ -100,7 +81,7 @@ h1 {
     .nav-link {
         flex-direction: column;
    }
-    .story {
+    .stories {
         width: 90%;
    }
 }

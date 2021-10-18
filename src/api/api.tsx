@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { BASE_URL } from '../components/common/constants';
+
 interface storyType {
     story:{
     id:number,
@@ -10,10 +11,8 @@ interface storyType {
     tempPeople:string,
     url:string}
 }
-const getStory = async (id:number) => {
+export const getStory = async (id:number) => {
   try {
-
-    
     const story = await axios.get<storyType>(`${BASE_URL}/item/${id}.json`);
     return story;
   } catch (error) {

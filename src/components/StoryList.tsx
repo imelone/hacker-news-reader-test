@@ -1,11 +1,10 @@
 import  "../styles/storyList.css";
 
-const Link = ({ url, title, data}:{ url:string, title:string, data?:object }) => (
-   <a href={url} target="_blank" rel="noreferrer" >
+const Link = ({ url, title, id}:{ url:string, title:string, id?:number }) => (
+   <a href={url}  rel="noreferrer" >
     {title}
   </a>
 );
-
 
 interface storyType {
     story:{
@@ -21,11 +20,12 @@ const StoryList = ({story: { id, by, title, kids, time, url } }:storyType) => {
     
   return (
    
-    <div className="story">
-      <div className="story-title">
-        <Link url={url} title={title}/>
+    <div className="stories">
+      <div className="stories-title">
+        <Link url={`#/story/${192327}`} title={title} />
+        {/*192327 has text field*/}
       </div>
-      <div className="story-info" >
+      <div className="stories-info" >
         <span>
           by{' '}
           <Link url={`https://news.ycombinator.com/user?id=${by}`} title={by} />

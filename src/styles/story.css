@@ -1,0 +1,26 @@
+.story {
+     padding:2rem;
+}
+.story-title {
+ 
+    padding-top:20px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+}
+.story-info {
+ 
+    padding-top:20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    text-align: left;
+}
+.story .story-info span {
+    margin: 4px;
+}
+.html_raw{
+    padding-top:20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    text-align: left;
+}

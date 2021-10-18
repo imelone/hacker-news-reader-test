@@ -1,38 +1,53 @@
-import  "../styles/storyList.css";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-const Link = ({ url, title, data}:{ url:string, title:string, data?:object }) => (
+import spinner from "../assets/spinnerImg.svg";
+
+//css
+import  "../styles/story.css";
+import "../styles/loader.css";
+
+//api
+import {getStory} from "./../api/api";
+
+const Link = ({ url, title, data}:{ url:string, title:string, data?:number }) => (
    <a href={url} target="_blank" rel="noreferrer" >
     {title}
   </a>
 );
 
+const StoryList = () => {
+    const { id } = useParams<any>();
+    const [isLoading, setIsLoading] = useState(false);
+    const [storyData, setStoriesData] = useState<any>([])
 
-interface storyType {
-    story:{
-    id:number,
-    by:string,
-    title:string,
-    kids:string,
-    time:number,
-    url:string}
-}
+    useEffect(() => {
+        setIsLoading(true);
+         getStory(id).then((res: any) => {
+           setStoriesData(res.data)
+           setIsLoading(false);
+         })
 
-const StoryList = ({story: { id, by, title, kids, time, url } }:storyType) => {
+    }, [id])
     
   return (
    
     <div className="story">
+               {isLoading === true ? <div className="container-spinner" ><div className="loader" ><img src={spinner} className="spinner"/></div></div> : ""}
       <div className="story-title">
-      {title}
+        {storyData.title}
       </div>
+     
+     
+      <div className="html_raw" style={{ fontFamily: "Open sans" }} dangerouslySetInnerHTML={{ __html:  storyData.text }} />
       <div className="story-info" >
         <span>
           by{' '}
-          <Link url={`https://news.ycombinator.com/user?id=${by}`} title={by} />
+          <Link url={`https://news.ycombinator.com/user?id=${storyData.by}`} title={storyData.by} />
         </span>
         |
         <span>
-          {new Date(time * 1000).toLocaleDateString('en-US', {
+          {new Date(storyData.time * 1000).toLocaleDateString('en-US', {
             hour: 'numeric',
             minute: 'numeric'
           })}
@@ -40,10 +55,11 @@ const StoryList = ({story: { id, by, title, kids, time, url } }:storyType) => {
         |
         <span>
           <Link
-            url={`https://news.ycombinator.com/item?id=${id}`}
-            title={`${kids && kids.length > 0 ? kids.length : 0} comments`}
+            url={`https://news.ycombinator.com/item?id=${storyData.id}`}
+            title={`${ storyData.kids && storyData.kids.length > 0 ? storyData.kids.length : 0} comments`}
           />
         </span>
+       
       </div>
     </div>
 
